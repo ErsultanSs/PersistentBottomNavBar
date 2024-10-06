@@ -92,11 +92,11 @@ class _BottomNavStyle15 extends StatelessWidget {
               child: Stack(
                 children: <Widget>[
                   Transform.translate(
-                    offset: const Offset(0, -22),
+                    offset: const Offset(0, -19),
                     child: Center(
                       child: Container(
                         width: 150,
-                        height: height,
+                        height: 150,
                         margin: const EdgeInsets.only(top: 2),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
