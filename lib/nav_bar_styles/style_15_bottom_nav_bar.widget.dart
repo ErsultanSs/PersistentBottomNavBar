@@ -95,7 +95,7 @@ class _BottomNavStyle15 extends StatelessWidget {
                     offset: const Offset(0, -19),
                     child: Center(
                       child: Container(
-                        width: 150,
+                        width: 250,
                         height: 150,
                         margin: const EdgeInsets.only(top: 2),
                         decoration: BoxDecoration(
