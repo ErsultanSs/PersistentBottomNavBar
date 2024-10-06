@@ -200,7 +200,7 @@ class _BottomNavStyle15 extends StatelessWidget {
                         }
                       },
                       child: index == midIndex
-                          ? Container(width: 150, color: Colors.transparent)
+                          ? Container(width: 200, color: Colors.transparent)
                           : _buildItem(
                               context,
                               item,
