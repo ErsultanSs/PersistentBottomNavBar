@@ -17,7 +17,7 @@ class _BottomNavStyle15 extends StatelessWidget {
       navBarEssentials.navBarHeight == 0
           ? const SizedBox.shrink()
           : Container(
-              width: 150,
+              width: 130,
               height: height,
               color: Colors.transparent,
               padding: EdgeInsets.only(
@@ -92,7 +92,7 @@ class _BottomNavStyle15 extends StatelessWidget {
               child: Stack(
                 children: <Widget>[
                   Transform.translate(
-                    offset: const Offset(0, -23),
+                    offset: const Offset(0, -22),
                     child: Center(
                       child: Container(
                         width: 150,
