@@ -21,7 +21,7 @@ class _BottomNavStyle15 extends StatelessWidget {
               height: height,
               color: Colors.transparent,
               padding: EdgeInsets.only(
-                  top: navBarEssentials.padding.top,
+                  top: 10,
                   bottom: navBarEssentials.padding.bottom),
               child: Container(
                 alignment: Alignment.center,
@@ -52,7 +52,7 @@ class _BottomNavStyle15 extends StatelessWidget {
                           const SizedBox.shrink()
                         else
                           Padding(
-                            padding: const EdgeInsets.only(top: 15),
+                            padding: const EdgeInsets.only(top: 5),
                             child: Material(
                               type: MaterialType.transparency,
                               child: FittedBox(
