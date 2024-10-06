@@ -9,77 +9,61 @@ class _BottomNavStyle15 extends StatelessWidget {
   final _NavBarEssentials navBarEssentials;
   final NavBarDecoration? navBarDecoration;
 
-  Widget _buildItem(
-          final BuildContext context,
-          final PersistentBottomNavBarItem item,
-          final bool isSelected,
-          final double? height) =>
-      navBarEssentials.navBarHeight == 0
-          ? const SizedBox.shrink()
-          : Container(
-              width: 130,
-              height: height,
-              color: Colors.transparent,
-              padding: EdgeInsets.only(
-                  top: 10,
-                  bottom: navBarEssentials.padding.bottom),
-              child: Container(
-                alignment: Alignment.center,
-                height: height,
-                child: ListView(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  scrollDirection: Axis.horizontal,
-                  children: <Widget>[
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Expanded(
-                          child: IconTheme(
-                            data: IconThemeData(
-                                size: item.iconSize,
-                                color: isSelected
-                                    ? (item.activeColorSecondary ??
-                                        item.activeColorPrimary)
-                                    : item.inactiveColorPrimary ??
-                                        item.activeColorPrimary),
-                            child: isSelected
-                                ? item.icon
-                                : item.inactiveIcon ?? item.icon,
-                          ),
-                        ),
-                        if (item.title == null)
-                          const SizedBox.shrink()
-                        else
-                          Padding(
-                            padding: const EdgeInsets.only(top: 0),
-                            child: Material(
-                              type: MaterialType.transparency,
-                              child: FittedBox(
-                                  child: Text(
-                                item.title!,
-                                style: item.textStyle != null
-                                    ? (item.textStyle!.apply(
-                                        color: isSelected
-                                            ? (item.activeColorSecondary ??
-                                                item.activeColorPrimary)
-                                            : item.inactiveColorPrimary))
-                                    : TextStyle(
-                                        color: isSelected
-                                            ? (item.activeColorSecondary ??
-                                                item.activeColorPrimary)
-                                            : item.inactiveColorPrimary,
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 12),
-                              )),
-                            ),
-                          )
-                      ],
-                    )
-                  ],
+Widget _buildItem(
+  final BuildContext context,
+  final PersistentBottomNavBarItem item,
+  final bool isSelected,
+  final double? height,
+) =>
+    navBarEssentials.navBarHeight == 0
+        ? const SizedBox.shrink()
+        : Container(
+            width: 130,
+            height: height,
+            color: Colors.transparent,
+            padding: EdgeInsets.only(top: 10, bottom: navBarEssentials.padding.bottom),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center, // Center items vertically
+              children: <Widget>[
+                IconTheme(
+                  data: IconThemeData(
+                    size: item.iconSize,
+                    color: isSelected
+                        ? (item.activeColorSecondary ?? item.activeColorPrimary)
+                        : item.inactiveColorPrimary ?? item.activeColorPrimary,
+                  ),
+                  child: isSelected ? item.icon : item.inactiveIcon ?? item.icon,
                 ),
-              ),
-            );
+                if (item.title != null)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 4), // Add some space between icon and text
+                    child: Material(
+                      type: MaterialType.transparency,
+                      child: FittedBox(
+                        child: Text(
+                          item.title!,
+                          style: item.textStyle != null
+                              ? (item.textStyle!.apply(
+                                  color: isSelected
+                                      ? (item.activeColorSecondary ?? item.activeColorPrimary)
+                                      : item.inactiveColorPrimary))
+                              : TextStyle(
+                                  color: isSelected
+                                      ? (item.activeColorSecondary ?? item.activeColorPrimary)
+                                      : item.inactiveColorPrimary,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 12,
+                                ),
+                        ),
+                      ),
+                    ),
+                  )
+                else
+                  const SizedBox.shrink(), // If title is null, shrink the widget
+              ],
+            ),
+          );
+
 
  Widget _buildMiddleItem(
   final PersistentBottomNavBarItem item,
